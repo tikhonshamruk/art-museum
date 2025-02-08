@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-display: swap;
+    font-family: 'LexendDeca-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../public/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'LexendDeca-Normal';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../public/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf') format('truetype')
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Inter-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../public/fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype')
+}
+
+:root{
+    --light-color:#FFFFFF;
+    --grey-color: #FAFAFA;
+    --orange-color: #E0A449;
+    --dark-color:#393939;
+    --orange-faint-color:#F17900;
+    --gradient-color: linear-gradient(to right, #343333,#484848,#282828);
+    --dark-color-transparent: rgba(57, 57, 57, 0.5);
+    --darkest-color-transparent: rgba(57, 57, 57, 0.05);
+    --orange-color-transparent: rgba(251, 215, 178, 0.3);
+    --blue-dark-color:#2C3144;
+}
+
+*{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: var(--dark-color);
+}
+
+.text-link{
+    font-family: "Inter-Regular", sans-serif;
+    color: var(--light-color);
+    font-size: 18px;
+    line-height: 21.78px;
+}
+
+.capture-text{
+    font-family: "LexendDeca-Bold", sans-serif;
+    color: var(--dark-color);
+    font-size: 64px;
+    line-height: 80px;
+}
+
+.search-text{
+    font-family: "Inter-Regular", sans-serif;
+    color:var(--dark-color-transparent);
+    font-size: 14px;
+    line-height: 16.94px;
+}
+
+.deca-normal{
+    font-family: "LexendDeca-Normal", sans-serif;
+    color: var(--orange-color);
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.deca-normal-32{
+    font-family: "LexendDeca-Normal", sans-serif;
+    color: var(--dark-color);
+    font-size: 32px;
+    line-height: 40px;
+}

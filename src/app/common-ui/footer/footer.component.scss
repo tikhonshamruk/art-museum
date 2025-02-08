@@ -1,0 +1,11 @@
+.footer{
+    background-color: var(--grey-color);
+    height: 127px;
+    width: 100%;
+    padding-left: 320px;
+    padding-right: 320px;
+    display: grid;
+    grid-template-columns: 206px 1fr;
+    align-items: center;
+    justify-items: last baseline;
+}

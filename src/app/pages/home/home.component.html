@@ -1,0 +1,19 @@
+<div class="home">
+    <app-search [searchData]="data"></app-search>
+    <section class="arts-section">
+        <span class="deca-normal">Topics for you</span>
+        <span class="deca-normal-32">Our special gallery</span>
+        <div class="arts-list">
+            <div *ngFor="let art of arts" class="art-preview">
+                <a [routerLink]="['/art', art?.id]" class="art-link">
+                    <img width="387px" height="444px" [src]="art?.image_id | urlPipe" alt="">
+                    <div>
+                        {{art?.id}}
+                    </div>
+                    <div>{{art?.image_id}}</div>
+                  </a>
+            </div>
+        </div>
+    </section>
+    <app-pagination  [currentPage]="currentPage"></app-pagination>
+</div>
