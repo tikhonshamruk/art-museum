@@ -1,1 +1,19 @@
-<p>favorites works!</p>
+<section class="favorites">
+    <h2>Избранное</h2>
+    <div class="favorites-list">
+        <div *ngFor="let art of favorites" class="favorite-item">
+            <a [routerLink]="['/art', art?.id]" class="art-link">
+                <img width="387px" height="444px" [src]="art?.image_id | urlPipe" alt="">
+            </a>
+            <div class="art-description">
+                <div class="art-description_wrapper">
+                    <span class="deca-medium">{{art?.title}}</span>
+                    <span class="deca-normal-artist">{{art?.artist_title}}</span>
+                </div>
+                <button class="btn-img" (click)="removeFromFavorites(art.id)">
+                    <img src="bookmark-filled.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

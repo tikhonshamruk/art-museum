@@ -7,13 +7,19 @@
             <div *ngFor="let art of arts" class="art-preview">
                 <a [routerLink]="['/art', art?.id]" class="art-link">
                     <img width="387px" height="444px" [src]="art?.image_id | urlPipe" alt="">
-                    <div>
-                        {{art?.id}}
-                    </div>
-                    <div>{{art?.image_id}}</div>
                   </a>
+                  <div class="art-description">
+                    <div class="art-description_wrapper">
+                        <span class="deca-medium">{{art?.title}}</span>
+                        <span class="deca-normal-artist">{{art?.artist_title}}</span>
+                    </div>
+                    <button class="btn-img" (click)="toggleFavorite(art)">
+                        <img [src]="isFavorite(art.id) ? '../bookmark-filled.svg' : 'bookmark.svg'" alt="">
+                    </button>
+                  </div>
             </div>
         </div>
     </section>
-    <app-pagination  [currentPage]="currentPage"></app-pagination>
+    <app-pagination [totalPages]="13"   [currentPage]="currentPage"></app-pagination>
+    <app-other [data]="data"></app-other>
 </div>

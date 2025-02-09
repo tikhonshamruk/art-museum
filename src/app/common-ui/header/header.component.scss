@@ -8,6 +8,22 @@
     grid-template-columns: 206px 1fr;
     align-items: center;
     justify-items: last baseline;
+
+    @media (max-width: 1600px) {
+        padding-left: 160px;
+        padding-right: 160px;
+}
+
+@media (max-width: 768px) {
+        padding-left: 80px;
+        padding-right: 80px;
+}
+
+/* Media query для экранов шириной до 576px */
+@media (max-width: 576px) {
+        padding-left: 20px;
+        padding-right: 20px;
+}
 }
 
 .header-wrapper{

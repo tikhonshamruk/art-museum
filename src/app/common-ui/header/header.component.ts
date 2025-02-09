@@ -19,8 +19,10 @@ export class HeaderComponent {
   isHomePage = computed(() => {
     const nav = this.navigationEnd();
     if (nav) {
-      const currentUrl = (nav as NavigationEnd).url;
-      return currentUrl === '/home' || currentUrl === '/';
+      const currentUrl = (nav as NavigationEnd).url.split('?')[0]; // Убираем параметры запроса
+      return currentUrl === '/'; 
+      // const currentUrl = (nav as NavigationEnd).url;
+      // return currentUrl === '/home' || currentUrl === '/';
     }
     return false; // По умолчанию возвращаем false, если navigationEnd равен null
   });
