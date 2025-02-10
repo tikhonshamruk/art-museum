@@ -10,8 +10,11 @@
                   </a>
                   <div class="art-description">
                     <div class="art-description_wrapper">
-                        <span class="deca-medium">{{art?.title}}</span>
+                        <span class="deca-medium">{{art?.title | dotsPipe}}</span>
                         <span class="deca-normal-artist">{{art?.artist_title}}</span>
+                        <div class="public">
+                            <span class="deca-bold-15">Public</span>
+                        </div>
                     </div>
                     <button class="btn-img" (click)="toggleFavorite(art)">
                         <img [src]="isFavorite(art.id) ? '../bookmark-filled.svg' : 'bookmark.svg'" alt="">
@@ -21,5 +24,5 @@
         </div>
     </section>
     <app-pagination [totalPages]="13"   [currentPage]="currentPage"></app-pagination>
-    <app-other [data]="data"></app-other>
+    <app-other></app-other>
 </div>

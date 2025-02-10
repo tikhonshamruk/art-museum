@@ -76,6 +76,20 @@ body{
     line-height: 80px;
 }
 
+.deca-bold-16{
+    font-family: "LexendDeca-Bold", sans-serif;
+    color: var(--dark-color);
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.deca-bold-15{
+    font-family: "LexendDeca-Bold", sans-serif;
+    color: var(--dark-color);
+    font-size: 15.35px;
+    line-height: 26.32px;
+}
+
 .search-text{
     font-family: "Inter-Regular", sans-serif;
     color:var(--dark-color-transparent);
@@ -86,6 +100,13 @@ body{
 .deca-normal{
     font-family: "LexendDeca-Normal", sans-serif;
     color: var(--orange-color);
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.deca-normal-dark{
+    font-family: "LexendDeca-Normal", sans-serif;
+    color: var(--dark-color);
     font-size: 16px;
     line-height: 20px;
 }
@@ -102,6 +123,13 @@ body{
     color: var(--dark-color);
     font-size: 32px;
     line-height: 40px;
+}
+
+.deca-normal-24{
+    font-family: "LexendDeca-Normal", sans-serif;
+    color: var(--orange-color);
+    font-size: 24px;
+    line-height: 30px;
 }
 
 .deca-medium{
@@ -130,6 +158,14 @@ body{
 
 .btn-img:hover{
     background-color: var(--orange-color-transparent);
+}
+
+.mg32{
+    margin-bottom: 32px;
+}
+
+.mg16{
+    margin-bottom: 16px;
 }
 
 

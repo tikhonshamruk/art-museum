@@ -1,25 +1,4 @@
-<!-- <ul class="pagination">
-    <li *ngFor="let page of pages">
-        <a 
-            [routerLink]="['/']" 
-            [queryParams]="{ page: page }" 
-            [ngClass]="{ active: currentPage === page }"
-            class="deca-light"
-        >
-            {{ page }}
-        </a>
-    </li>
-    <button>
-        <img src="../arrow.svg" alt="">
-    </button>
-</ul> -->
-
 <ul class="pagination">
-    <!-- <button class="" (click)="previousPage()" [disabled]="currentPage === 1">
-        <svg class="arrow-left" width="20" height="20" viewBox="0 0 24 24">
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L9.83 12z"/>
-          </svg>
-    </button> -->
     <li *ngFor="let page of pages">
         <a
             [routerLink]="['/']"

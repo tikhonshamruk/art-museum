@@ -3,19 +3,20 @@
     <span class="deca-normal-32">Other works for you</span>
     <div class="other-wrapper">
 
-            <div *ngFor="let art of data" class="favorite-item">
+        <div *ngFor="let art of data" class="favorite-item">
                 <a [routerLink]="['/art', art?.id]" class="art-link">
-                    <!-- <img width="387px" height="444px" [src]="art?.image_id | urlPipe" alt=""> -->
+                    <img width="80px" height="80px" [src]="art?.image_id | urlPipe" alt="">
                 </a>
-                <div class="art-description">
-                    <div class="art-description_wrapper">
-                        <span class="deca-medium">{{art?.title}}</span>
-                        <span class="deca-normal-artist">{{art?.title}}</span>
-                    </div>
-                    <button class="btn-img" (click)="toggleFavorite(art)">
+                <div class="art-description_wrapper">
+                        <span class="deca-medium">{{art?.title | dotsPipe}}</span>
+                        <span class="deca-normal-artist">{{art?.artist_title}}</span>
+                        <div class="public">
+                            <span class="deca-bold-15">Public</span>
+                        </div>
+                 </div>
+                <button class="btn-img" (click)="toggleFavorite(art)">
                         <img [src]="isFavorite(art.id) ? '../bookmark-filled.svg' : 'bookmark.svg'" alt="">
-                    </button>
-                </div>
+                 </button>
             </div>
 
 

@@ -1,1 +1,28 @@
-<p>art works!</p>
+<section class="art" *ngIf="data">
+    <div class="art-image">
+        <img width="500px" height="570px" [src]="data.image_id | urlPipe" alt="">
+            <button class="btn-img art-img-top" (click)="toggleFavorite(data)">
+                <img [src]="isFavorite(data.id) ? '../bookmark-filled.svg' : 'bookmark.svg'" alt="">
+            </button>
+    </div>
+    <div class="art-description">
+        <div class="art-info">
+            <span class="deca-normal-32 mg32">{{data.title}}</span>
+            <span class="deca-normal-24 mg16">{{data.artist_title}}</span>
+            <span class="deca-bold-16">{{data | datePipe}}</span>
+        </div>
+        <div class="art-overview">
+            <div class="mg32">
+                <span class="deca-normal-32 ">Overview</span>
+            </div>
+            <div class="art-overview_info">
+                <p class="deca-normal">Artist nacionality: <span class="deca-normal-dark">{{data.place_of_origin}}</span></p>
+                <p class="deca-normal">Dimensions:Sheet: <span class="deca-normal-dark">{{data.dimensions | demensionsPipe: data.dimensions_detail}}</span></p>
+                <p class="deca-normal">Credit Line: <span class="deca-normal-dark">{{data.credit_line}}, {{data.fiscal_year}}</span></p>
+                <p class="deca-normal">Repository: <span class="deca-normal-dark">{{data.gallery_title}}</span></p>
+                <span class="deca-normal-dark">Public</span>
+            </div>
+        </div>
+
+    </div>
+</section>

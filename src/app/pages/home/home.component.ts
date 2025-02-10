@@ -10,12 +10,13 @@ import { PaginationArtworkInterface, PaginationResponse } from '../../auth/pagin
 import { UrlPipePipe } from '../../help/url-pipe.pipe';
 import { FavoritesService } from '../../help/favorites.service';
 import { OtherComponent } from '../../common-ui/other/other.component';
+import { DotsPipe } from '../../help/dots.pipe';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SearchComponent, RouterModule, CommonModule, PaginationComponent, UrlPipePipe, OtherComponent],
+  imports: [SearchComponent, RouterModule, CommonModule, PaginationComponent, UrlPipePipe, OtherComponent, DotsPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
