@@ -1,28 +1,41 @@
 <div class="home">
-    <app-search [searchData]="data"></app-search>
-    <section class="arts-section">
-        <span class="deca-normal">Topics for you</span>
-        <span class="deca-normal-32">Our special gallery</span>
-        <div class="arts-list">
-            <div *ngFor="let art of arts" class="art-preview">
-                <a [routerLink]="['/art', art?.id]" class="art-link">
-                    <img width="387px" height="444px" [src]="art?.image_id | urlPipe" alt="">
-                  </a>
-                  <div class="art-description">
-                    <div class="art-description_wrapper">
-                        <span class="deca-medium">{{art?.title | dotsPipe}}</span>
-                        <span class="deca-normal-artist">{{art?.artist_title}}</span>
-                        <div class="public">
-                            <span class="deca-bold-15">Public</span>
-                        </div>
-                    </div>
-                    <button class="btn-img" (click)="toggleFavorite(art)">
-                        <img [src]="isFavorite(art.id) ? '../bookmark-filled.svg' : 'bookmark.svg'" alt="">
-                    </button>
-                  </div>
+    <app-search></app-search>
+  
+    <!-- Loader -->
+    <div class="loader" *ngIf="isLoading">
+      Loading...
+    </div>
+  
+    <section class="arts-section" *ngIf="!isLoading">
+      <span class="deca-normal">Topics for you</span>
+      <span class="deca-normal-32">Our special gallery</span>
+      <div class="arts-list">
+        <div *ngFor="let art of arts" class="art-preview">
+          <a [routerLink]="['/art', art?.id]" class="art-link">
+            <img width="387px" height="444px" [src]="art?.image_id | urlPipe" alt="" />
+          </a>
+          <div class="art-description">
+            <div class="art-description_wrapper">
+              <span class="deca-medium">{{ art?.title | dotsPipe }}</span>
+              <span class="deca-normal-artist">{{ art?.artist_title }}</span>
+              <div class="public">
+                <span class="deca-bold-15">Public</span>
+              </div>
             </div>
+            <div class="btn-img_home">
+              <button class="btn-img" (click)="toggleFavorite(art)">
+                <img
+                  width="24px"
+                  height="24px"
+                  [src]="isFavorite(art.id) ? '../icon-filled.svg' : 'icon.svg'"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-    <app-pagination [totalPages]="13"   [currentPage]="currentPage"></app-pagination>
+    <app-pagination [totalPages]="13" [currentPage]="currentPage"></app-pagination>
     <app-other></app-other>
-</div>
+  </div>

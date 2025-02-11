@@ -1,0 +1,22 @@
+<section class="other">
+    <span class="deca-normal">{{name}}</span>
+    <span class="deca-normal-32">{{subname}}</span>
+    <div class="other-wrapper">
+
+        <div *ngFor="let art of data" class="favorite-item">
+                <a [routerLink]="['/art', art?.id]" class="art-link">
+                    <img width="80px" height="80px" [src]="art?.image_id | urlPipe" alt="">
+                </a>
+                <div class="art-description_wrapper">
+                        <span class="deca-medium">{{art?.title | dotsPipe}}</span>
+                        <span class="deca-normal-artist">{{art?.artist_title}}</span>
+                        <div class="public">
+                            <span class="deca-bold-15">Public</span>
+                        </div>
+                 </div>
+                <button class="btn-img" (click)="toggleFavorite(art)">
+                        <img width="24px" height="24px" [src]="isFavorite(art.id) ? '../icon-filled.svg' : 'icon.svg'" alt="">
+                 </button>
+            </div>
+    </div>
+</section>

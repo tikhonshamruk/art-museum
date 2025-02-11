@@ -1,9 +1,28 @@
 <section class="search">
     <span class="capture-text">
-        Let's Find Some <span>Art</span> Here!
+      Let's Find Some <span class="favorite-text">Art</span> Here!
     </span>
     <form class="search-form">
-        <input type="search" class="" placeholder="Search Art, Artist, Work...">
-        <img src="../search.svg" alt="">
+      <input
+        class="search-input"
+        type="search"
+        placeholder="Search Art, Artist, Work..."
+        [(ngModel)]="searchTerm"
+        (input)="onSearchInput()"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <button type="submit" class="search-button">
+        <img src="../search.svg" alt="Search" />
+      </button>
+  
+      <ul class="search-results" *ngIf="searchResults.length > 0 && isSearchValid">
+        <li *ngFor="let result of searchResults" (click)="goToArt(result.id)">
+          {{ result.title }}
+        </li>
+      </ul>
+  
+      <div *ngIf="!isSearchValid" class="error-message">
+        Please enter a valid search term.
+      </div>
     </form>
-</section>
+  </section>

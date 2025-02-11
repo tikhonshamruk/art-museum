@@ -1,8 +1,12 @@
+<div class="loader" *ngIf="isLoading">
+    Loading...
+  </div>
+
 <section class="art" *ngIf="data">
     <div class="art-image">
-        <img width="500px" height="570px" [src]="data.image_id | urlPipe" alt="">
+        <img class="art-image-size" width="500px" height="570px" [src]="data.image_id | urlPipe" alt="">
             <button class="btn-img art-img-top" (click)="toggleFavorite(data)">
-                <img [src]="isFavorite(data.id) ? '../bookmark-filled.svg' : 'bookmark.svg'" alt="">
+                <img width="24px" height="24px" [src]="isFavorite(data.id) ? '../icon-filled.svg' : 'icon.svg'" alt="">
             </button>
     </div>
     <div class="art-description">

@@ -30,4 +30,8 @@ export class AuthService {
   getInfoArt(id:string):Observable<GetArtworkResponseInterface>{
     return this.http.get<GetArtworkResponseInterface>(`https://api.artic.edu/api/v1/artworks/${id}`)
   }
+
+  getSearch(){
+    return this.http.get(`https://api.artic.edu/api/v1/artworks`)
+  }
 }

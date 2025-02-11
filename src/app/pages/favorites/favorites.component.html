@@ -1,19 +1,25 @@
-<section class="favorites">
-    <h2>Избранное</h2>
-    <div class="favorites-list">
+<section class="other">
+    <span class="capture-text capture-text_img">
+        Here Are Your<img width="74px" height="74px" src="../icon.svg" alt=""> <span class="favorite-text">Favorites</span>
+    </span>
+    <span class="deca-normal">Saved by you</span>
+    <span class="deca-normal-32">Your favorites list</span>
+    <div class="other-wrapper">
+
         <div *ngFor="let art of favorites" class="favorite-item">
-            <a [routerLink]="['/art', art?.id]" class="art-link">
-                <img width="387px" height="444px" [src]="art?.image_id | urlPipe" alt="">
-            </a>
-            <div class="art-description">
+                <a [routerLink]="['/art', art?.id]" class="art-link">
+                    <img width="80px" height="80px" [src]="art?.image_id | urlPipe" alt="">
+                </a>
                 <div class="art-description_wrapper">
-                    <span class="deca-medium">{{art?.title}}</span>
-                    <span class="deca-normal-artist">{{art?.artist_title}}</span>
-                </div>
-                <button class="btn-img" (click)="removeFromFavorites(art.id)">
-                    <img src="bookmark-filled.svg" alt="">
+                        <span class="deca-medium">{{art?.title | dotsPipe : 15}}</span>
+                        <span class="deca-normal-artist">{{art?.artist_title | dotsPipe}}</span>
+                        <div class="public">
+                            <span class="deca-bold-15">Public</span>
+                        </div>
+                 </div>
+                 <button class="btn-img" (click)="removeFromFavorites(art.id)">
+                    <img src="icon-filled.svg" alt="">
                 </button>
             </div>
-        </div>
     </div>
 </section>

@@ -12,6 +12,7 @@ import { filter } from 'rxjs';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  isMenuOpen: boolean = false;
   private router = inject(Router);
   private navigationEnd = toSignal(this.router.events.pipe(filter(event => event instanceof NavigationEnd)));
 
@@ -26,4 +27,13 @@ export class HeaderComponent {
     }
     return false; // По умолчанию возвращаем false, если navigationEnd равен null
   });
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  isHomePageRight(): boolean {
+    // Implement your logic to check if it's the home page
+    return true; // Replace with your actual logic
+  }
 }

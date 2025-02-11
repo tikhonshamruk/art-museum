@@ -1,4 +1,4 @@
-<section class="header">
+<!-- <section class="header">
     <img src="../museum-logo 1.svg" alt="">
     <div class="header-wrapper">
         <a *ngIf="!isHomePage()" class="header-items"
@@ -15,4 +15,26 @@
     </div>    
 </section>
 
+ -->
+ <section class="header">
+    <img src="../museum-logo 1.svg" alt="Museum Logo">
 
+   
+    <button class="burger-menu-button" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="header-wrapper" [ngClass]="{'open': isMenuOpen}">
+        <a *ngIf="!isHomePage()" class="header-items" [routerLink]="['']">
+            <img class="header-img" src="../home.svg" alt="Home">
+            <span class="text-link">Home</span>
+        </a>
+
+        <a class="header-items" [routerLink]="['/favorites']">
+            <img class="header-img" src="../bookmark.svg" alt="Favorites">
+            <span class="text-link">Your favorites</span>
+        </a>
+    </div>
+</section>

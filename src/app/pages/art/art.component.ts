@@ -20,6 +20,8 @@ export class ArtComponent implements OnInit {
 
   data?: GetArtworkDataInterface 
 
+  isLoading:boolean = true
+
   favoritesService = inject(FavoritesService)
   
   constructor(
@@ -36,7 +38,9 @@ export class ArtComponent implements OnInit {
                     this.data = response.data
                   }
                 )
-              ).subscribe();
+              ).subscribe(()=>{
+                this.isLoading = false
+              });
     }
   }
 

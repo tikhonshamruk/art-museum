@@ -7,16 +7,17 @@ import { PaginationArtworkInterface, PaginationResponse } from '../../auth/pagin
 import { AuthService } from '../../auth/auth.service';
 import { tap } from 'rxjs';
 import { DotsPipe } from '../../help/dots.pipe';
+import { WorksComponent } from '../shared/works/works.component';
 
 @Component({
   selector: 'app-other',
   standalone: true,
-  imports: [RouterModule, UrlPipePipe, CommonModule, DotsPipe],
+  imports: [WorksComponent],
   templateUrl: './other.component.html',
   styleUrl: './other.component.scss'
 })
 export class OtherComponent implements OnInit, OnChanges {
-   data ?:  PaginationArtworkInterface[]
+   datas ?:  PaginationArtworkInterface[]
    
    authService = inject(AuthService)
 
@@ -26,7 +27,7 @@ export class OtherComponent implements OnInit, OnChanges {
     this.authService.getOther(1).pipe(
                 tap((response: PaginationResponse)=>
                   {
-                  this.data = response.data
+                  this.datas = response.data
                 }
               )
             ).subscribe(); 
@@ -34,20 +35,7 @@ export class OtherComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']) {
-      console.log('Data changed:', this.data);
+      console.log('Data changed:', this.datas);
     }
-  }
-
-
-  toggleFavorite(art: any): void {
-    if (this.favoritesService.isFavorite(art.id)) {
-      this.favoritesService.removeFromFavorites(art.id);
-    } else {
-      this.favoritesService.addToFavorites(art);
-    }
-  }
-
-  isFavorite(artId: number): boolean {
-    return this.favoritesService.isFavorite(artId);
   }
 }

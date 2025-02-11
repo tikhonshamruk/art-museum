@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit{
   data: ArtworkInterface[] = []
   arts: PaginationArtworkInterface[] = []
 
+  isLoading: boolean = true;  
+
   myAuthService = inject(AuthService)
   constructor(private router: Router, private route: ActivatedRoute, private favoritesService: FavoritesService){}
 
@@ -48,7 +50,9 @@ export class HomeComponent implements OnInit{
               this.arts = response.data
             }
           )
-        ).subscribe(); 
+        ).subscribe(()=>{
+          this.isLoading= false
+        }); 
         })
   }
 

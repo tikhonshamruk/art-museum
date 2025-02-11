@@ -8,8 +8,6 @@ export class UrlPipePipe implements PipeTransform {
 
   transform(imageId: string | null | undefined): string | null{
     const iiifUrl = 'https://www.artic.edu/iiif/2';
-
-   console.log('ifafafafj;;;;;;;;;;;;;;;;;;')
     if (!imageId) {
       return null; 
     }
