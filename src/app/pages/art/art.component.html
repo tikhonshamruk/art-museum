@@ -6,7 +6,7 @@
     <div class="art-image">
         <img class="art-image-size" width="500px" height="570px" [src]="data.image_id | urlPipe" alt="">
             <button class="btn-img art-img-top" (click)="toggleFavorite(data)">
-                <img width="24px" height="24px" [src]="isFavorite(data.id) ? '../icon-filled.svg' : 'icon.svg'" alt="">
+                <img width="24px" height="24px" [src]="isFavorite(data.id) ? 'icon-filled.svg' : 'icon.svg'" alt="">
             </button>
     </div>
     <div class="art-description">
