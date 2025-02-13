@@ -37,3 +37,20 @@
 .public{
     margin-top: auto;
 }
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    label {
+        margin-right: 10px;
+    }
+
+    select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+}

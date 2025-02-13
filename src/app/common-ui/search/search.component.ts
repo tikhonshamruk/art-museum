@@ -17,8 +17,9 @@ export class SearchComponent implements OnInit {
   data: ArtworkInterface[] = [];
   searchTerm: string = '';
   searchResults: ArtworkInterface[] = [];
-  isSearchValid: boolean = true; // Добавляем переменную для валидации
-  private searchSubject = new Subject<string>(); // Subject для дебаунса
+  isSearchValid: boolean = true;
+  showNoResults: boolean = false; // Флаг для отображения "No results found"
+  private searchSubject = new Subject<string>();
 
   authService = inject(AuthService);
   router = inject(Router);
@@ -33,38 +34,40 @@ export class SearchComponent implements OnInit {
       )
       .subscribe();
 
-    // Подписываемся на Subject и реализуем дебаунс
     this.searchSubject.pipe(
-      debounceTime(300),      // Ждем 300мс после последнего ввода
-      distinctUntilChanged()  // Игнорируем, если значение не изменилось
+      debounceTime(300),
+      distinctUntilChanged()
     ).subscribe(() => {
-      this.performSearch(); // Выполняем поиск
+      this.performSearch();
     });
   }
 
   onSearchInput(): void {
-    this.isSearchValid = this.validateSearchTerm(this.searchTerm); // Выполняем валидацию
+    this.validateSearchTerm(this.searchTerm); // Валидируем searchTerm
 
     if (this.isSearchValid) {
-      this.searchSubject.next(this.searchTerm); // Отправляем значение в Subject
+      this.showNoResults = false; // Скрываем "No results found"
+      this.searchSubject.next(this.searchTerm);
     } else {
       this.searchResults = []; // Очищаем результаты
+      this.showNoResults = false; //скрываем результаты если они были
     }
   }
 
-  private validateSearchTerm(term: string): boolean {
-    // Проверяем, что запрос не пустой и не состоит только из пробелов
-    return term.trim().length > 0;
+  private validateSearchTerm(term: string): void {
+    // Проверяем, что запрос не пустой и не состоит только из пробелов, если  - устанавливаем isSearchValid = false
+    this.isSearchValid = term.trim().length > 0;
   }
 
   private performSearch(): void {
-    // Выполняем фильтрацию данных
-    if (this.searchTerm) {
+    if (this.searchTerm && this.isSearchValid) {
       this.searchResults = this.data.filter((art) =>
         art.title.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
+      this.showNoResults = this.searchResults.length === 0; //показываем если ничего не нашли
     } else {
       this.searchResults = [];
+      this.showNoResults = false; // Скрываем сообщение, когда поле пустое
     }
   }
 
