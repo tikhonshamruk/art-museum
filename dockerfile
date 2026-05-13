@@ -5,6 +5,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
+
 FROM ubuntu:latest
 RUN apt-get update && apt-get install -y nginx && apt-get clean
 COPY --from=build /app/dist/art-museum /var/www/html
